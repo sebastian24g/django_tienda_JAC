@@ -1,0 +1,32 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <h1 class="text-center my-4">Nuestros Productos</h1>
+    <div class="row">
+      {% for product in products %}
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-img-container">
+              <img class="card-img-top" src="{{ product.imageURL }}" alt="{{ product.name }}">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">{{ product.name }}</h4>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">
+                <strong>Disponibilidad:</strong> 
+                <span class="badge {% if product.quantity > 0 %}bg-success{% else %}bg-danger{% endif %}">
+                  {% if product.quantity > 0 %}{{ product.quantity }} disponibles{% else %}Agotado{% endif %}
+                </span>
+              </p>
+              <h5 class="text-primary">${{ product.price|floatformat:0 }}</h5>
+              <button data-product="{{ product.id }}" data-action="add" class="btn btn-primary btn-block update-cart" {% if product.quantity <= 0 %}disabled{% endif %}>
+                {% if product.quantity <= 0 %}Agotado{% else %}Agregar al carrito{% endif %}
+              </button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

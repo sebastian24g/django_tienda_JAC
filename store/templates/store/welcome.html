@@ -1,0 +1,30 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+  <div class="container text-center py-5">
+    <h1 class="display-4 text-success">🌿 Bienvenido a Frescura Natural 🍏</h1>
+    <p class="lead">Descubre la frescura de nuestros productos cultivados con amor por campesinos de nuestra región.</p>
+    
+    <div class="row my-4">
+      <div class="col-md-4">
+        <img src="{% static 'images/frutas.jpg' %}" class="img-fluid rounded shadow" alt="Frutas frescas">
+        <h3 class="mt-2 text-warning">Frutas Frescas 🍓</h3>
+        <p>Deliciosas y jugosas, cultivadas con esmero para ofrecerte lo mejor de la naturaleza.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/vegetales.jpg' %}" class="img-fluid rounded shadow" alt="Vegetales frescos">
+        <h3 class="mt-2 text-success">Vegetales Nutritivos 🌿</h3>
+        <p>Ricos en vitaminas y minerales, ideales para una alimentación balanceada.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'images/verduras.jpg' %}" class="img-fluid rounded shadow" alt="Verduras frescas">
+        <h3 class="mt-2 text-danger">Verduras de Calidad 🌱</h3>
+        <p>Directo del campo a tu mesa, garantizando frescura y sabor en cada bocado.</p>
+      </div>
+    </div>
+    
+    <p class="mt-4 text-muted">Todos nuestros productos son seleccionados cuidadosamente y cultivados de manera responsable por campesinos locales.</p>
+    
+    <a href="{% url 'store' %}" class="btn btn-lg btn-primary mt-3">🌿 Explorar la Tienda</a>
+  </div>
+{% endblock %}
